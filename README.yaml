@@ -1,0 +1,140 @@
+project:
+  name: "Campus Eats"
+  tagline: "Smart Campus Food Ordering System"
+  description: >
+    Campus Eats is a role-based food ordering web application designed for
+    college campuses. Students can order food from classrooms or anywhere
+    on campus, vendors prepare food in advance, and students collect food
+    directly from the canteen. This reduces queues, enables real-time menu
+    updates, and promotes digital payments within the campus.
+
+features:
+  user:
+    - Browse live menu
+    - Add food to cart with quantity control (+ / −)
+    - Mock digital payment
+    - Track order status:
+        - Paid
+        - Preparing
+        - Ready
+        - Collected
+    - Confirm food collection from canteen
+
+  vendor:
+    - Add and remove menu items
+    - Receive orders in real time
+    - Update order status:
+        - Preparing
+        - Ready for Pickup
+
+  admin:
+    - View total users
+    - View total vendors
+    - Monitor total orders
+    - Track ready and collected orders
+    - Analyze queue reduction statistics
+
+  realtime_updates:
+    - Auto-refresh dashboards every few seconds
+    - No manual refresh required
+    - No repeated login
+
+tech_stack:
+  frontend: "Streamlit"
+  backend: "Python"
+  database: "MySQL"
+  authentication: "Session-based authentication"
+  payments: "Mock payment system (extendable to UPI)"
+
+project_structure:
+  root: "CE/"
+  files:
+    - app.py
+    - requirements.txt
+    - README.md
+  folders:
+    - auth/
+    - user/
+    - vendor/
+    - admin/
+    - database/
+    - config/
+    - utils/
+
+prerequisites:
+  - Python 3.9 or higher
+  - MySQL 8.0 or higher
+  - Internet connection for installing dependencies
+
+setup_instructions:
+  step_1:
+    title: "Clone or copy the project"
+    commands:
+      - "git clone <your-github-repo-url>"
+      - "cd CE"
+
+  step_2:
+    title: "Create MySQL database"
+    sql:
+      - "CREATE DATABASE campus_eats;"
+
+  step_3:
+    title: "Configure database credentials"
+    file: "config/db_config.py"
+    example:
+      host: "localhost"
+      user: "root"
+      password: ""
+      database: "campus_eats"
+      port: 3306
+
+  step_4:
+    title: "Install dependencies"
+    commands:
+      - "pip install -r requirements.txt"
+      - "python -m pip install -r requirements.txt"
+
+  step_5:
+    title: "Initialize database tables"
+    commands:
+      - "python -m database.init_db"
+
+  step_6:
+    title: "Add demo data (optional)"
+    commands:
+      - "python -m database.seed_data"
+    description: "Adds sample vendors and dishes for demo purposes"
+
+  step_7:
+    title: "Run the application"
+    commands:
+      - "streamlit run app.py"
+    url: "http://localhost:8501"
+
+application_flow:
+  - Signup as Vendor and add menu items
+  - Signup as User and place food order
+  - Vendor marks order as Preparing
+  - Vendor marks order as Ready
+  - User collects food and marks order as Collected
+  - Admin monitors system analytics
+
+use_case:
+  summary: >
+    Campus Eats enables students to order food digitally from classrooms
+    or any corner of the campus. Vendors prepare food in advance and notify
+    users when it is ready. Students collect food directly from the canteen,
+    reducing queues and waiting time while enabling a cashless campus ecosystem.
+
+future_enhancements:
+  - UPI or wallet payment integration
+  - QR-based pickup verification
+  - Push notifications for order readiness
+  - Mobile application version
+
+author:
+  name: "Campus Eats"
+  description: "A smart campus digitization project built for academic and real-world use"
+
+github:
+  note: "If you find this project useful, feel free to star the repository"
